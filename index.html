@@ -3,254 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brendon's Cool Corner | Thoughts, Finds & Creative Vibes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Cool Corner — Brendon Clark</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #faf9f7;
+            --text: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #c41e3a;
+            --border: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        /* Header */
+        header {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 6vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* Section headers */
+        .section-header {
+            padding: 64px 0 32px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Posts */
+        .post {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        .post-meta {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .post-meta span {
+            color: var(--accent);
+        }
+
+        .post h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .post h3:hover {
+            color: var(--accent);
+        }
+
+        .post p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .post-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text);
+            padding-bottom: 2px;
+            transition: all 0.2s;
+        }
+
+        .post-link:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Cool Finds */
+        .finds-grid {
+            display: grid;
+            gap: 1px;
+            background: var(--border);
+            margin: 48px 0;
+        }
+
+        .find-item {
+            background: var(--bg);
+            padding: 32px;
+        }
+
+        .find-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .find-item p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .find-item a {
+            display: inline-block;
+            margin-top: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* People */
+        .person {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .person:last-child {
+            border-bottom: none;
+        }
+
+        .person h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .person p {
+            color: var(--text-secondary);
+        }
+
+        /* About */
+        .about {
+            padding: 80px 0;
+        }
+
+        .about p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .about p:first-of-type {
+            color: var(--text);
+            font-size: 24px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+
+            nav {
+                gap: 24px;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .post h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <header>
         <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-text">BRENDON'S</span>
-                <span class="logo-accent">COOL CORNER</span>
-            </a>
-            <nav class="nav">
-                <a href="#thoughts">Thoughts</a>
-                <a href="#finds">Cool Finds</a>
-                <a href="#people">Cool People</a>
-                <a href="#about">About</a>
-            </nav>
+            <div class="header-inner">
+                <a href="#" class="logo">Cool Corner</a>
+                <nav>
+                    <a href="#thoughts">Thoughts</a>
+                    <a href="#finds">Finds</a>
+                    <a href="#people">People</a>
+                    <a href="#about">About</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <p class="hero-eyebrow">Welcome to my space</p>
-                <h1 class="hero-title">
-                    Where creativity meets<br>
-                    <span class="gradient-text">cool vibes only</span>
-                </h1>
-                <p class="hero-subtitle">
-                    A place for my thoughts, the cool stuff I find, 
-                    and the amazing people I want to plug. No filters, just real.
-                </p>
-                <div class="hero-cta">
-                    <a href="#thoughts" class="btn btn-primary">Start Reading</a>
-                    <a href="#about" class="btn btn-outline">Get to Know Me</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <span class="card-icon">💭</span>
-                    <span class="card-text">Thoughts</span>
-                </div>
-                <div class="floating-card">
-                    <span class="card-icon">🔥</span>
-                    <span class="card-text">Cool Finds</span>
-                </div>
-                <div class="floating-card">
-                    <span class="card-icon">🤝</span>
-                    <span class="card-text">Plug People</span>
-                </div>
-            </div>
+            <p class="hero-tagline">A personal space</p>
+            <h1>Thoughts, cool finds, and creative vibes.</h1>
+            <p>No filters. Just real notes on what I'm learning, discovering, and the people worth knowing.</p>
         </div>
     </section>
 
-    <!-- Latest Thoughts -->
-    <section id="thoughts" class="section thoughts">
+    <section id="thoughts">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">💭 LATEST THOUGHTS</span>
-                <h2 class="section-title">What's on my mind</h2>
-                <p class="section-subtitle">Random musings, deep dives, and everything in between.</p>
+                <h2>Latest Thoughts</h2>
             </div>
-            
-            <div class="blog-grid">
-                <article class="blog-card featured">
-                    <div class="card-meta">
-                        <span class="card-date">Feb 10, 2026</span>
-                        <span class="card-tag">Mindset</span>
-                    </div>
-                    <h3 class="card-title">The Power of Staying Low and Building</h3>
-                    <p class="card-excerpt">
-                        Working at a bank taught me something valuable — the real moves happen 
-                        when nobody's watching. Here's why I'm doubling down on silent progress...
-                    </p>
-                    <a href="#" class="card-link">Read more →</a>
-                </article>
 
-                <article class="blog-card">
-                    <div class="card-meta">
-                        <span class="card-date">Feb 8, 2026</span>
-                        <span class="card-tag">Tech</span>
-                    </div>
-                    <h3 class="card-title">AI Skills Every Developer Needs in 2026</h3>
-                    <p class="card-excerpt">
-                        The game's changing fast. These are the AI tools and skills 
-                        I'm learning to stay ahead...
-                    </p>
-                    <a href="#" class="card-link">Read more →</a>
-                </article>
+            <article class="post">
+                <p class="post-meta">February 10, 2026 <span>/</span> Mindset</p>
+                <h3>The Power of Staying Low and Building</h3>
+                <p>Working at a bank taught me something valuable — the real moves happen when nobody's watching. Here's why I'm doubling down on silent progress...</p>
+                <a href="#" class="post-link">Read more</a>
+            </article>
 
-                <article class="blog-card">
-                    <div class="card-meta">
-                        <span class="card-date">Feb 5, 2026</span>
-                        <span class="card-tag">Life</span>
-                    </div>
-                    <h3 class="card-title">Why I Started This Blog</h3>
-                    <p class="card-excerpt">
-                        Sometimes you just need a space to be yourself. 
-                        No corporate speak, just real talk...
-                    </p>
-                    <a href="#" class="card-link">Read more →</a>
-                </article>
-            </div>
+            <article class="post">
+                <p class="post-meta">February 8, 2026 <span>/</span> Tech</p>
+                <h3>AI Skills Every Developer Needs in 2026</h3>
+                <p>The game's changing fast. These are the AI tools and skills I'm learning to stay ahead of the curve...</p>
+                <a href="#" class="post-link">Read more</a>
+            </article>
+
+            <article class="post">
+                <p class="post-meta">February 5, 2026 <span>/</span> Life</p>
+                <h3>Why I Started Writing Here</h3>
+                <p>Sometimes you just need a space to be yourself. No corporate speak, no LinkedIn performance — just real talk...</p>
+                <a href="#" class="post-link">Read more</a>
+            </article>
         </div>
     </section>
 
-    <!-- Cool Finds -->
-    <section id="finds" class="section finds">
+    <section id="finds">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">🔥 COOL FINDS</span>
-                <h2 class="section-title">Stuff worth sharing</h2>
-                <p class="section-subtitle">Tools, apps, articles, and random things I think are cool.</p>
+                <h2>Cool Finds</h2>
             </div>
 
             <div class="finds-grid">
-                <div class="find-card">
-                    <div class="find-icon">🛠️</div>
-                    <h3 class="find-title">AnyCrawl</h3>
-                    <p class="find-desc">Web scraping API that actually works. Clean markdown extraction from any site.</p>
-                    <a href="#" class="find-link">Check it out →</a>
+                <div class="find-item">
+                    <h4>AnyCrawl</h4>
+                    <p>Web scraping API that actually works. Clean markdown extraction from any site.</p>
+                    <a href="#">Check it out</a>
                 </div>
-
-                <div class="find-card">
-                    <div class="find-icon">📚</div>
-                    <h3 class="find-title">The Psychology of Money</h3>
-                    <p class="find-desc">Best book I've read this year. Changed how I think about wealth and happiness.</p>
-                    <a href="#" class="find-link">My notes →</a>
+                <div class="find-item">
+                    <h4>The Psychology of Money</h4>
+                    <p>Best book I've read this year. Changed how I think about wealth and happiness.</p>
+                    <a href="#">My notes</a>
                 </div>
-
-                <div class="find-card">
-                    <div class="find-icon">🎵</div>
-                    <h3 class="find-title">Lofi Girl Radio</h3>
-                    <p class="find-desc">Perfect coding background music. 24/7 chill beats to grind to.</p>
-                    <a href="#" class="find-link">Listen →</a>
+                <div class="find-item">
+                    <h4>Lofi Girl Radio</h4>
+                    <p>Perfect coding background music. 24/7 chill beats to grind to.</p>
+                    <a href="#">Listen</a>
                 </div>
-
-                <div class="find-card">
-                    <div class="find-icon">💻</div>
-                    <h3 class="find-title">Vercel</h3>
-                    <p class="find-desc">Deploy websites in seconds. Free tier is generous. Game changer for side projects.</p>
-                    <a href="#" class="find-link">Try it →</a>
+                <div class="find-item">
+                    <h4>Vercel</h4>
+                    <p>Deploy websites in seconds. Free tier is generous. Game changer for side projects.</p>
+                    <a href="#">Try it</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cool People -->
-    <section id="people" class="section people">
+    <section id="people">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">🤝 COOL PEOPLE</span>
-                <h2 class="section-title">People you should know</h2>
-                <p class="section-subtitle">Creators, builders, and cool humans doing cool things.</p>
+                <h2>Cool People</h2>
             </div>
 
-            <div class="people-grid">
-                <div class="person-card">
-                    <div class="person-avatar">👤</div>
-                    <h3 class="person-name">Coming Soon</h3>
-                    <p class="person-desc">This space is reserved for someone cool I want to plug. Watch this space.</p>
-                    <a href="#" class="person-link">Follow →</a>
-                </div>
+            <div class="person">
+                <h4>Featured: Coming Soon</h4>
+                <p>This space is reserved for someone cool I want to plug. Watch this space.</p>
+            </div>
 
-                <div class="person-card">
-                    <div class="person-avatar">👤</div>
-                    <h3 class="person-name">Coming Soon</h3>
-                    <p class="person-desc">Know someone doing cool stuff? Hit me up and I'll feature them here.</p>
-                    <a href="#" class="person-link">Nominate →</a>
-                </div>
-
-                <div class="person-card cta-card">
-                    <div class="person-avatar">✨</div>
-                    <h3 class="person-name">Want a Feature?</h3>
-                    <p class="person-desc">Building something cool? Creating content? Drop me a line.</p>
-                    <a href="mailto:brendonclark4@gmail.com" class="btn btn-outline">Get in Touch</a>
-                </div>
+            <div class="person">
+                <h4>Nominate Someone</h4>
+                <p>Know someone doing cool stuff? Building something interesting? Drop me a line.</p>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section about">
+    <section id="about" class="about">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <span class="section-eyebrow">ABOUT ME</span>
-                    <h2 class="section-title">The person behind the blog</h2>
-                    <p class="about-text">
-                        Hey, I'm Brendon. By day, I'm a Java developer at a bank. 
-                        By night, I'm plotting my next move, learning new skills, 
-                        and trying to build something meaningful.
-                    </p>
-                    <p class="about-text">
-                        This blog is my creative outlet — a place to share what I'm learning, 
-                        what I'm finding cool, and connect with other people on the same journey.
-                    </p>
-                    <p class="about-text">
-                        No agenda, no sales pitch. Just real thoughts from someone 
-                        trying to level up while staying true to themselves.
-                    </p>
-                    <div class="about-links">
-                        <a href="https://github.com/clawrose026-stack" class="about-link">GitHub</a>
-                        <a href="mailto:brendonclark4@gmail.com" class="about-link">Email</a>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="about-card">
-                        <div class="stat">
-                            <span class="stat-number">7+</span>
-                            <span class="stat-label">Years Coding</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">JHB</span>
-                            <span class="stat-label">Based In</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">∞</span>
-                            <span class="stat-label">Curiosity</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>About</h2>
             </div>
+
+            <p>Hey, I'm Brendon. By day, I'm a Java developer at a bank. By night, I'm plotting my next move, learning new skills, and trying to build something meaningful.</p>
+            
+            <p>This blog is my creative outlet — a place to share what I'm learning, what I'm finding cool, and connect with other people on the same journey.</p>
+            
+            <p>No agenda, no sales pitch. Just real thoughts from someone trying to level up while staying true to themselves.</p>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="footer-logo">BRENDON'S COOL CORNER</span>
-                    <p class="footer-tagline">Stay low, keep firing. 💰</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#thoughts">Thoughts</a>
-                    <a href="#finds">Cool Finds</a>
-                    <a href="#people">Cool People</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Brendon Clark. All rights reserved.</p>
-                <p class="footer-made">Made with 💻 and ☕ in Johannesburg</p>
-            </div>
+            <p>Stay low, keep firing. <a href="mailto:brendonclark4@gmail.com">Get in touch</a></p>
         </div>
     </footer>
 </body>
